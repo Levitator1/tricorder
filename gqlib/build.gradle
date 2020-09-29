@@ -1,0 +1,46 @@
+evaluationDependsOn(':gqlib:common')
+apply plugin: 'java'
+
+description = 'GQ RF Counter Library'
+group = 'com.levitator'
+
+repositories {
+    //jcenter()
+}
+
+task copyConfig(type: Copy){
+    from('conditional'){
+        include 'In.java.' + project(':gqlib:common').CONFIG
+    }
+    rename { str -> 'In.java' }
+    into 'src/main/java/com/levitator/gqlib/config/'
+}
+
+
+//Why does this dependency work here, but not in build? Isn't compileJava
+//a subtask of build? Maybe it's a dependency, so the order is ill-defined.
+compileJava{
+    dependsOn copyConfig
+}
+
+build {
+    dependsOn gradle.includedBuild('sercat_gradle').task(':build')
+}
+
+clean{
+}
+
+dependencies {
+    //testImplementation     'junit:junit:4.13'
+}
+
+afterEvaluate {
+    project(":gqlib:common").update(getProject())
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+}
+
+jar{
+}
+

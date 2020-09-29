@@ -1,0 +1,3 @@
+#!/bin/bash
+java -jar tricorder-1.0.jar $@
+

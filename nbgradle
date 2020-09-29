@@ -1,0 +1,5 @@
+#!/bin/bash
+#This is the current Netbeans gradle, but other versions should be suitable
+
+~/.gradle/wrapper/dists/gradle-6.3-bin/8tpu6egwsccjzp10c1jckl0rx/gradle-6.3/bin/gradle $@
+

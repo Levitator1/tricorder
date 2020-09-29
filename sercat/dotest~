@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    DEV=/dev/ttyUSB0
+else
+    DEV=$1
+fi
+
+(
+    sleep 5
+    echo "<GETVER>>"
+    sleep 1
+    echo "<GETVER>>"
+    sleep 1
+    echo "<GETVER>>"
+    sleep 1
+    echo "<GETVER>>"
+) | dist/Debug/GNU-Linux/serpipe "$DEV"

@@ -1,0 +1,34 @@
+//apply plugin: 'java'
+//apply plugin: 'jacoco'
+//apply plugin: 'application'
+
+//
+// gradle wrapper for Netbeans-generated makefile system
+//
+
+evaluationDependsOn(':sercat:common')
+description = 'GQ RF Counter Native I/O Process'
+group = 'sercat'
+ext.WORKING_DIR='..'
+
+task build_sercat(type:Exec) {
+  workingDir WORKING_DIR
+  commandLine 'bash', '-c', 'make -j$(nproc) CONF=Release'
+}
+
+task clean_sercat(type:Exec) {
+    workingDir WORKING_DIR
+    commandLine 'bash', '-c', 'make clean; rm -f ../bin/sercat'
+}
+
+task build {
+    dependsOn build_sercat
+}
+
+task clean {
+    dependsOn clean_sercat
+}
+
+task check{
+    
+}

@@ -1,0 +1,6 @@
+package com.levitator.gqlib.config;
+
+public class In {
+    static public boolean debug=false;
+}
+

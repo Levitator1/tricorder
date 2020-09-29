@@ -1,0 +1,20 @@
+#!/bin/bash
+
+ECHO="/usr/bin/echo"
+
+if [ $# -lt 1 ]; then
+    DEV=/dev/ttyUSB0
+else
+    DEV=$1
+fi
+
+(
+    sleep 5
+    $ECHO -n "<GETVER>>"
+    sleep 1
+    $ECHO -n "<GETVER>>"
+    sleep 1
+    $ECHO -n "<GETVER>>"
+    sleep 1
+    $ECHO -n "<GETVER>>"
+) | ../bin/sercat "$DEV"

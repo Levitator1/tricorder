@@ -1,0 +1,13 @@
+**/*.o
+**/*.d
+**/*.class
+**/*.zip
+**/*.jar
+bin/sercat
+bin/**
+tricorder/build/**
+sercat/build/**
+sercat/dist/**
+gqlib/build/**
+**/.gradle
+/common/build/

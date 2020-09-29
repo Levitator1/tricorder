@@ -1,0 +1,62 @@
+evaluationDependsOn(':tricorder:common')
+apply plugin: 'java'
+//apply plugin: 'jacoco'
+apply plugin: 'application'
+
+description = 'GQ RF Counter App'
+group = 'com.levitator'
+
+mainClassName = 'com.levitator.tricorder.Main'
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.levitator.tricorder.Main',
+                'Class-Path': 'gqlib-1.0.jar'
+        )
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    //testImplementation  'junit:junit:4.13'
+    implementation  'com.levitator:gqlib:1.0'
+}
+
+ task copyScripts(type: Copy) {
+    from('../scripts'){
+        include 'tricorder'
+    }
+    into '../bin/'
+ }
+ 
+task copyConfig(type: Copy){
+    from('conditional'){
+        include 'In.java.' + project(':tricorder:common').CONFIG
+    }
+    rename { str -> 'In.java' }
+    into 'src/main/java/com/levitator/tricorder/config'
+}
+
+compileJava{
+    dependsOn copyConfig
+}
+
+build {
+    dependsOn gradle.includedBuild('gqlib').task(':build')
+    dependsOn copyScripts
+}
+
+run {
+    //args '-p', '00:01:00', '-o', '-u'
+    //args '-d', '-u', '-o'
+    args '-l', 'false', '-c'
+}
+
+afterEvaluate {
+    project(":tricorder:common").update(getProject())
+}
+

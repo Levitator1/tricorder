@@ -1,0 +1,4 @@
+rootProject.name = 'root'
+includeBuild 'tricorder'
+//include ':root:tricorder'
+//project(':root:tricorder').projectDir  = new File('tricorder');

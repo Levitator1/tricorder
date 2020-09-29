@@ -1,0 +1,12 @@
+rootProject.name = 'tricorder'
+
+include ':tricorder:common'
+project(':tricorder:common').projectDir  = new File('../common');
+
+includeBuild '../gqlib'
+
+//include ':tricorder:gqlib'
+//project(':tricorder:gqlib').projectDir  = new File('../gqlib');
+
+
+

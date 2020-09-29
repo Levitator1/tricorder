@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <activeConfTypeElem>1</activeConfTypeElem>
+        <activeConfIndexElem>1</activeConfIndexElem>
+    </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/j/project/tricorder/sercat/utillib/File.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/config.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/meta.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQDevice.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/Serial.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/config.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQDevice.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/util.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/Serial.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/util.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQSerial.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/main.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/File.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/ringbuf.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/predicates.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQSerial.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/varargs.hpp</file>
+        </group>
+        <group name="tricorder_all">
+            <file>file:/home/j/project/tricorder/sercat/utillib/File.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/config.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/meta.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQDevice.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/Serial.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/config.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQDevice.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/util.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/Serial.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/util.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/Makefile</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQSerial.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/main.cpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/File.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/ringbuf.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/src/GQSerial.hpp</file>
+            <file>file:/home/j/project/tricorder/sercat/utillib/include/varargs.hpp</file>
+        </group>
+    </open-files>
+</project-private>

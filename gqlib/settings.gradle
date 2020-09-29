@@ -1,0 +1,9 @@
+rootProject.name = 'gqlib'
+
+include ':gqlib:common'
+project(':gqlib:common').projectDir  = new File('../common');
+
+includeBuild('../sercat/sercat_gradle')
+
+
+

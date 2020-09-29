@@ -1,0 +1,77 @@
+apply plugin: 'java'
+description = 'Gradle Common'
+
+//
+// Configuration
+//
+ext.OUTPUT_DIR={ return dir("" + parent_project.projectDir + "/../bin") }
+if(!project.hasProperty("CONFIG"))
+    ext.CONFIG='Release'
+
+println("Build configuration is: " + ext.CONFIG);
+
+//getParent() seems to be totally useless. Why? Who knows.
+
+//Prettty absurd if this is the simplest way to create a Directory object
+ext.dir={str-> return getLayout().getProjectDirectory().dir(str) }
+
+ext.set_jar_output={
+    if(parent_project.tasks.withType(Jar).size() > 0){
+        println "Setting jar outputs -> ${OUTPUT_DIR()}"
+    }
+        
+    parent_project.tasks.withType(Jar){
+        destinationDirectory = OUTPUT_DIR()
+        println "Task: " + archiveFileName.get() + "->" + destinationDirectory.getAsFile().get().getAbsolutePath()
+    }
+}
+
+ext.delete_jar_output={
+    if(parent_project.tasks.withType(Jar).size() > 0){
+        println 'Deleting jars...'
+    }
+    
+    parent_project.tasks.withType(Jar){
+        def f=archiveFile.getAsFile().get()
+        println "Deleting: " + f
+        f.delete()
+    }
+}
+
+ext.set_run_working_dir={
+    parent_project.tasks.withType(JavaExec){
+        workingDir=OUTPUT_DIR
+    }
+}
+
+ext.update={ proj ->
+    
+    //Update project config
+    proj.ext.OUTPUT_DIR=OUTPUT_DIR
+    proj.ext.CONFIG=CONFIG
+    
+    //Remember who our parent is because the standard properties and methods don't seem to work(?)
+    ext.parent_project=proj
+    
+    //Set all jars to go to our common bin director
+    set_jar_output()
+    
+    proj.compileJava.options.compilerArgs << '-Xlint:unchecked'
+    
+    //Delete jars from our custom folder when clean'ing
+    proj.tasks.clean.doLast {
+        delete_jar_output(parent_project) 
+    }
+    
+    //For JavaExec targets, set the working directory to the bin directory
+    set_run_working_dir();
+}
+
+ext.print_var = { v ->
+    println "$v=" + getAt(v)
+}
+
+//No actual output from this project. We're just a modifier.
+[compileJava, processResources, classes, jar, assemble].collect { t ->
+    t.enabled=false
+}

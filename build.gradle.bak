@@ -1,0 +1,28 @@
+def print_subprojects() {
+    println "Subprojects: "
+    subprojects { println "\t${getPath()}"  }
+}
+
+task blahclean{
+
+     print_subprojects()
+     //dependsOn tasks.getByPath(':root:tricorder:clean');
+
+     dependsOn tasks.getByPath(':root:tricorder:clean')
+     dependsOn tasks.getByPath(':root:tricorder:gqlib:clean')
+     /*
+     [':root:tricorder:clean', ':root:tricorder:gqlib:clean', ':root:tricorder:gqlib:sercat:clean'].collect { t ->
+     	clean.dependsOn tasks.getByPath(t)
+     }
+     */
+
+     //dependsOn task(':tricorder:clean')
+     //dependsOn tasks.getByName(':tricorder:clean');
+
+     /*
+     def clean_tasks = []
+     subprojects {clean_tasks.add(getPath() + ":clean") }
+     clean_tasks.collect{ clean.dependsOn this }
+     clean_tasks.each { t -> println t }
+     */
+}

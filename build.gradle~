@@ -1,0 +1,13 @@
+tasks.register('clean') {
+    dependsOn gradle.includedBuild('tricorder').task(':clean')
+    dependsOn gradle.includedBuild('gqlib').task(':clean')
+    dependsOn gradle.includedBuild('sercat').task(':clean')
+}
+
+tasks.register('build') {
+    dependsOn gradle.includedBuild('tricorder').task(':build')
+}
+
+tasks.register('run') {
+    dependsOn gradle.includeBuild('tricorder').task(':run')
+}

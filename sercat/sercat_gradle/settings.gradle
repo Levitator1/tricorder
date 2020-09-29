@@ -1,0 +1,5 @@
+rootProject.name = 'sercat'
+
+include ':sercat:common'
+project(':sercat:common').projectDir  = new File('../../common');
+
