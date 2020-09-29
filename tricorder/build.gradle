@@ -24,6 +24,7 @@ repositories {
 dependencies {
     //testImplementation  'junit:junit:4.13'
     implementation  'com.levitator:gqlib:1.0'
+    implementation 'com.levitator:util:1.0'
 }
 
  task copyScripts(type: Copy) {

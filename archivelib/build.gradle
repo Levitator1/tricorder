@@ -1,0 +1,30 @@
+evaluationDependsOn(':archivelib:common')
+apply plugin: 'java'
+
+//apply plugin: 'jacoco'
+//apply plugin: 'maven-publish'
+
+description = 'Recursively Bisectable Data Archive Library'
+group = 'com.levitator'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation(
+            'junit:junit:4.13',
+            'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    )
+    
+    testRuntime(
+            'org.junit.jupiter:junit-jupiter-engine:5.4.2'//,
+            //'org.junit.vintage:junit-vintage-engine:5.4.2'
+    )
+
+    implementation  'com.levitator:util:1.0'
+}
+
+afterEvaluate {
+    project(":archivelib:common").update(getProject())
+}

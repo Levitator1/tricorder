@@ -6,11 +6,8 @@ import com.levitator.gqlib.exceptions.GQException;
 import com.levitator.gqlib.exceptions.GQIOException;
 import com.levitator.gqlib.exceptions.GQInterruptedException;
 import com.levitator.gqlib.exceptions.GQProtocolException;
-import com.levitator.util.Action;
-import com.levitator.util.Ref;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import util.guards.Guard;
+import com.levitator.util.guards.Guard;
 
 public class LoggingMode {
     
@@ -47,6 +44,7 @@ public class LoggingMode {
         }
         else{
             device.set_save_data_onoff(mode);
+            System.out.println(); //terminate the line we left open
         }
     }
 

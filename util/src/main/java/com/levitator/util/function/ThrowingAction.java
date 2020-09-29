@@ -1,4 +1,4 @@
-package com.levitator.util;
+package com.levitator.util.function;
 
 @FunctionalInterface
 public interface ThrowingAction<E extends Exception>{

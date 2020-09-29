@@ -1,4 +1,4 @@
-package com.levitator.util;
+package com.levitator.util.function;
 
 import java.util.function.Consumer;
 

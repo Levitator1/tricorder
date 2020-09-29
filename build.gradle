@@ -1,7 +1,8 @@
 tasks.register('clean') {
-    dependsOn gradle.includedBuild('tricorder').task(':clean')
-    dependsOn gradle.includedBuild('gqlib').task(':clean')
-    dependsOn gradle.includedBuild('sercat_gradle').task(':clean')
+    ['tricorder', 'gqlib', 'sercat_gradle', 'archivelib', 'util'].forEach
+    { proj ->
+	dependsOn gradle.includedBuild(proj).task(':clean')
+    }
 }
 
 tasks.register('build') {

@@ -41,6 +41,11 @@ public abstract class NvmRecordBase {
         framing_bytes = get_record_id(data);
     }
     
+    //Initializes only framing_bytes
+    public NvmRecordBase(int id){
+        framing_bytes = id;
+    }
+    
     //Derived class checks that framing is correct or throws
     protected abstract void check_framing() throws GQFramingError;
     

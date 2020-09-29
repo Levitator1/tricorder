@@ -1,28 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.levitator.gqlib.csv;
 
 import com.levitator.util.Pair;
-import com.levitator.util.Util;
 import static com.levitator.util.Util.eat_ws;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Reader;
-import java.io.StringReader;
 import java.io.Writer;
 import java.util.ArrayList;
 
-/**
- *
- * @author j
- */
 public class CSV {
     
     //Returns true if at the end of a line.
     //Accepts LF, CRLF, or EOF as end-of-line
-    static private boolean check_eol(int ch, Reader data) throws IOException{
+    static private boolean check_eol(int ch, InputStream data) throws IOException{
         if(ch == '\n' || ch == -1) return true;
         if(ch == '\r'){
             ch = data.read();
@@ -36,7 +26,7 @@ public class CSV {
         }
     }
     
-    static public boolean check_end_of_field(int ch, int ech, Reader data) throws IOException{
+    static public boolean check_end_of_field(int ch, int ech, InputStream data) throws IOException{
         if(ch == ech) return true;
         if( check_eol(ch, data) ){
             //Unquoted case
@@ -49,8 +39,8 @@ public class CSV {
     }
     
     //Returns <field, end-of-record>
-    static public Pair<String, Boolean> read_field(Reader data) throws IOException{
-        var result = new StringBuffer();
+    static public void read_field(InputStream data, Pair<String, Boolean> field_data) throws IOException{
+        var result = new StringBuffer(); //inefficient
         int ech=',';
         var ch = eat_ws(data);
         if(ch == '"')
@@ -59,8 +49,9 @@ public class CSV {
         while(!check_end_of_field(ch = data.read(), ech, data)){            
             result.append(ch);
         }
-
-        return new Pair<>(result.toString(), check_eol(ch, data));
+        
+        field_data.first = result.toString();
+        field_data.second = check_eol(ch, data);
     }
     
     public static void write_field(String data, Writer buf, int i) throws IOException{
@@ -74,7 +65,7 @@ public class CSV {
         buf.append('"');
     }
     
-    public static void finish_parsing_record(Reader data) throws IOException{
+    public static void finish_parsing_record(InputStream data) throws IOException{
         int ch=eat_ws(data);
         if(!check_eol(ch, data)){
             throw new IllegalArgumentException("Expected end of record");
@@ -83,16 +74,19 @@ public class CSV {
     
     public static void finish_writing_record(Writer writer) throws IOException{ writer.append('\n'); }
     
-    static public String[] read_record(Reader data) throws IOException{
+    //Pair<String, Boolean> is for internal use, but we take it as an argument
+    //to avoid reallocating it over and over again
+    static public String[] read_record(InputStream data, Pair<String, Boolean> field_data) throws IOException{
         var result = new ArrayList<String>();
-        Pair<String, Boolean> field;
         
+        //A blank line will be interpreted as one field of zero length
         do{
-            field = read_field(data);
-            result.add(field.first);
-        }while(!field.second);
+            read_field(data, field_data);
+            result.add(field_data.first);
+        }while(!field_data.second);
         return result.toArray((ct)->new String[ct]);
     }
+    
     
     static public void write_record(String[] fields, Writer writer) throws IOException{
         int i=0;

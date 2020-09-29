@@ -1,7 +1,9 @@
 rootProject.name = 'root'
 includeBuild 'tricorder'
 includeBuild 'gqlib'
+includeBuild 'archivelib'
 includeBuild 'sercat/sercat_gradle'
+includeBuild 'util'
 
 //include ':root:tricorder'
 //project(':root:tricorder').projectDir  = new File('tricorder');

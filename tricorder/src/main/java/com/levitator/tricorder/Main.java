@@ -9,7 +9,7 @@ import com.levitator.gqlib.exceptions.GQUnexpectedException;
 import com.levitator.tricorder.exceptions.ScheduleInterrupted;
 import com.levitator.tricorder.features.LoggingMode;
 import com.levitator.util.Timer;
-import com.levitator.util.FunctionalThread;
+import com.levitator.util.LambdaThread;
 import com.levitator.util.Util;
 import java.io.*;
 
@@ -82,8 +82,7 @@ public class Main {
         //because it will throw an Interrupted exception
         {
             var this_thread = Thread.currentThread();
-            Runtime.getRuntime().addShutdownHook( 
-                new FunctionalThread( ()->shutdown_handler(this_thread) ) );
+            Runtime.getRuntime().addShutdownHook(new LambdaThread( ()->shutdown_handler(this_thread) ) );
         }
         
         var out = System.out;

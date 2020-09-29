@@ -17,7 +17,7 @@ import java.nio.file.*;
 import java.util.concurrent.*;
 import com.levitator.util.Util;
 import com.levitator.gqlib.exceptions.internal.RecordTruncatedException;
-import com.levitator.util.Action;
+import com.levitator.util.function.Action;
 import com.levitator.util.Ref;
 import com.levitator.util.Timer;
 import com.levitator.util.levArrays;
@@ -26,7 +26,7 @@ import java.nio.ByteBuffer;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import util.guards.Guard;
+import com.levitator.util.guards.Guard;
 
 public class GQDevice implements AutoCloseable{
     
@@ -953,7 +953,7 @@ public class GQDevice implements AutoCloseable{
                 throttle_time() + //plus initial throttle delay
                 initial.elapsed(); //plus offset relative to the moment we determined "time"
         
-        return Util.round_seconds(time.plusNanos(dt * 1000000));
+        return Util.round_to_seconds(time.plusNanos(dt * 1000000));
     }
     
     public void update_config() throws GQProtocolException, GQIOException, GQInterruptedException{

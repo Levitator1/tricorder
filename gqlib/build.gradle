@@ -5,7 +5,7 @@ description = 'GQ RF Counter Library'
 group = 'com.levitator'
 
 repositories {
-    //jcenter()
+    jcenter()
 }
 
 task copyConfig(type: Copy){
@@ -30,8 +30,23 @@ build {
 clean{
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
-    //testImplementation     'junit:junit:4.13'
+    testImplementation(
+            'junit:junit:4.13',
+            'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    )
+    
+    testRuntime(
+            'org.junit.jupiter:junit-jupiter-engine:5.4.2'//,
+            //'org.junit.vintage:junit-vintage-engine:5.4.2'
+    )
+    
+    implementation  'com.levitator:archivelib:1.0'
+    implementation  'com.levitator:util:1.0'
 }
 
 afterEvaluate {

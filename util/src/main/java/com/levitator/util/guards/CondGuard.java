@@ -1,8 +1,8 @@
-package util.guards;
+package com.levitator.util.guards;
 
 import java.util.function.Consumer;
-import com.levitator.util.Action;
-import com.levitator.util.ThrowingAction;
+import com.levitator.util.function.Action;
+import com.levitator.util.function.ThrowingAction;
 
 /*
 * RAII-style idiom

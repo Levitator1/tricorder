@@ -3,6 +3,7 @@ rootProject.name = 'tricorder'
 include ':tricorder:common'
 project(':tricorder:common').projectDir  = new File('../common');
 
+includeBuild '../util'
 includeBuild '../gqlib'
 
 //include ':tricorder:gqlib'

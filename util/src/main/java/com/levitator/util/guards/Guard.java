@@ -1,6 +1,6 @@
-package util.guards;
+package com.levitator.util.guards;
 
-import com.levitator.util.ThrowingAction;
+import com.levitator.util.function.ThrowingAction;
 
 //Have to support "throws Exception" because that's how AutoCloseable is defined
 public interface Guard<E extends Exception> extends ThrowingAction<E>, AutoCloseable{

@@ -3,7 +3,6 @@ rootProject.name = 'gqlib'
 include ':gqlib:common'
 project(':gqlib:common').projectDir  = new File('../common');
 
+includeBuild('../util')
 includeBuild('../sercat/sercat_gradle')
-
-
-
+includeBuild('../archivelib')

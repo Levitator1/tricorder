@@ -1,0 +1,5 @@
+rootProject.name = 'archivelib'
+
+include ':archivelib:common'
+project(':archivelib:common').projectDir  = new File('../common');
+includeBuild '../util'

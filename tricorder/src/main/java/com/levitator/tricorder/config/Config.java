@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 
 public class Config extends In {
     
-    static public final String version_string = "V1.0RC2";
+    static public final String version_string = "V1.0RC1";
     
     //When true, display interrupt exceptions as errors
     //Otherwise, attempt a clean exit

@@ -23,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 */
 public class MeasurementRecord extends NvmRecordBase implements Comparable<MeasurementRecord>{
     
+    public static final int framing_id = 0xaa55;
     
     //EMF is in m/G, milligauss
     //EF is in V/m, volts per meter
@@ -71,7 +72,7 @@ public class MeasurementRecord extends NvmRecordBase implements Comparable<Measu
     }
     
     static public boolean check_framing(int id){
-        return id == 0xaa55;
+        return id == framing_id;
     }
     
     @Override
@@ -82,6 +83,11 @@ public class MeasurementRecord extends NvmRecordBase implements Comparable<Measu
     
     static public int sizeof(){
         return 12;
+    }
+    
+    public MeasurementRecord(String[] fields, DateTimeFormatter[] time_formats) throws RecordTruncatedException, GQUserDataFormatException{
+        super(framing_id);
+        parse_text(fields, time_formats);
     }
     
     public MeasurementRecord(ByteBuffer data) throws RecordTruncatedException, GQFramingError, GQProtocolException{
@@ -182,9 +188,12 @@ public class MeasurementRecord extends NvmRecordBase implements Comparable<Measu
         CSV.write_record(headings, out);
     }
     
+    /*
+    //obs
     public void from_CSV(Reader data, DateTimeFormatter[] fmts) throws IOException, RecordTruncatedException, GQUserDataFormatException{
         var record = CSV.read_record(data);
         parse_text(record, fmts);
     }
+    */
     
 }

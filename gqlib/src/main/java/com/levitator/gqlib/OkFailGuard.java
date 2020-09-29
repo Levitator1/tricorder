@@ -6,7 +6,7 @@
 package com.levitator.gqlib;
 
 import java.io.PrintStream;
-import util.guards.CondGuard;
+import com.levitator.util.guards.CondGuard;
 
 public class OkFailGuard extends CondGuard<RuntimeException, RuntimeException> {
     
