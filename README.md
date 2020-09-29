@@ -2,7 +2,7 @@ tricorder
 =========
 
 
-**V 1.0RC2**  
+**V 1.01**  
 This is a tool for accessing a GQ EMF-390 RF counter from a Linux host over USB.
 This is the first release candidate.
   
