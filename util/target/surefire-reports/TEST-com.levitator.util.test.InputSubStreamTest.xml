@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.levitator.util.test.InputSubStreamTest" time="1.814" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.levitator.util.test.InputSubStreamTest" time="2.232" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,9 +16,8 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/j/project/tricorder/util/target/surefire/surefirebooter6456459022508194401.jar /home/j/project/tricorder/util/target/surefire 2020-09-28T21-49-22_746-jvmRun1 surefire1558346837636383142tmp surefire_013913082524488843070tmp"/>
+    <property name="sun.java.command" value="/home/j/project/tricorder/util/target/surefire/surefirebooter3570640085543665941.jar /home/j/project/tricorder/util/target/surefire 2020-09-29T09-54-06_979-jvmRun1 surefire14726530222620866742tmp surefire_017403056155184165878tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.levitator.util.test.InputSubStreamTest"/>
     <property name="surefire.test.class.path" value="/home/j/project/tricorder/util/target/test-classes:/home/j/project/tricorder/util/target/classes:/home/j/.m2/repository/junit/junit/4.13/junit-4.13.jar:/home/j/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/j/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar:/home/j/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/j/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/j/.m2/repository/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/j"/>
@@ -33,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/j/project/tricorder/util/target/surefire/surefirebooter6456459022508194401.jar"/>
+    <property name="surefire.real.class.path" value="/home/j/project/tricorder/util/target/surefire/surefirebooter3570640085543665941.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.8+10-post-Debian-1deb10u1"/>
     <property name="user.name" value="j"/>
@@ -59,7 +58,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="basic_InputSubStream_test" classname="com.levitator.util.test.InputSubStreamTest" time="1.524">
+  <testcase name="basic_InputSubStream_test" classname="com.levitator.util.test.InputSubStreamTest" time="1.953">
     <system-out><![CDATA[*****************************************************
 Writing 134217728 test bytes to ../tmp/test_bytes.tmp
 ]]></system-out>

@@ -53,13 +53,13 @@ public class InputSubStreamTest {
     }
     
     private void verify_bytes(byte[] data, long offs){
-        byte b=0
+        byte b=0;
         for(var i=0; i < data.length; ++i){
             assertEquals("byte did not match", (long)b++, (long)data[i] );
         }
     }
     
-    private void test_substream( ThrowingSupplier<InputSubStream, IOException> supplier) throws Exception{
+    private void test_substream( ThrowingSupplier<InputSubStream, IOException> supplier) throws IOException{
         var stream = supplier.get();
         var offs = stream.file().getFilePointer();
         var buf = stream.readAllBytes();
@@ -84,7 +84,7 @@ public class InputSubStreamTest {
     // public void hello() {}
     
     @Test
-    public void basic_InputSubStream_test() throws FileNotFoundException, IOException, InterruptedException, Exception{
+    public void basic_InputSubStream_test() throws FileNotFoundException, IOException, InterruptedException{
         var threads = new ArrayList<ThrowingActionThread<IOException>>(THREADS);
         var substream = new InputSubStream( (ignored) -> new RandomAccessFile(TEST_DATA_PATH.toFile(), "r") );
         var substreams = substream.divide(THREADS); //8 is a common number of processors
